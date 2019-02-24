@@ -12,6 +12,10 @@ use Webmozart\Assert\Assert;
  */
 class FeatureContext implements Context
 {
+    private $parameters;
+    private $screenshot_dir;
+    private $user;
+    private $myGreeting;
     /**
      * Initializes context.
      *
