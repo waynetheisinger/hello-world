@@ -12,6 +12,6 @@ class User
   }
 
   public function getGreeting($value='') {
-    return 'Hello '.$this->name;
+    return 'hello '.$this->name;
   }
 }

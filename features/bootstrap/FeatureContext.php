@@ -5,6 +5,7 @@ use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Helloworld\User;
+use Webmozart\Assert\Assert;
 
 /**
  * Defines application features from the specific context.
@@ -48,6 +49,6 @@ class FeatureContext implements Context
      */
     public function iShouldBeTold($helloWorld)
     {
-        throw new PendingException();
+        Assert::eq($this->myGreeting, $helloWorld, 'We were not told hello world');
     }
 }
