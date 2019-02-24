@@ -16,6 +16,7 @@ class FeatureContext implements Context
     private $screenshot_dir;
     private $user;
     private $myGreeting;
+    private $illegalValue;
     /**
      * Initializes context.
      *
@@ -95,11 +96,11 @@ class FeatureContext implements Context
      */
     public function anExceptionShouldBeThrown()
     {
-       function myClosure($who) {
-              return function() use ($who) {
-                  $user = new User();
-                  $user->setName((int)$who);
-              };
+        function myClosure($who) {
+            return function() use ($who) {
+                $user = new User();
+                $user->setName((int) $who);
+            };
         }
         $myClosure = myClosure($this->illegalValue);
         Assert::throws($myClosure);
