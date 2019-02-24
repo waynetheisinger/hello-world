@@ -6,6 +6,9 @@ default:
         - FeatureContext:
             parameters:
               screenshot_dir: %paths.base%/screenshots
+        - WebContext:
+            parameters:
+              screenshot_dir: %paths.base%/screenshots
 
   extensions:
     Behat\MinkExtension:
