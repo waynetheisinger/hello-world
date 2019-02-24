@@ -4,6 +4,7 @@ use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
+use Helloworld\User;
 
 /**
  * Defines application features from the specific context.
@@ -23,6 +24,7 @@ class FeatureContext implements Context
       if (isset($parameters['screenshot_dir'])) {
         $this->screenshot_dir = $parameters['screenshot_dir'];
       }
+      $this->user = new User();
     }
 
     /**
@@ -30,7 +32,7 @@ class FeatureContext implements Context
      */
     public function thatMyUsernameIsThe($world)
     {
-        $this->user->name($world);
+        $this->user->setName($world);
     }
 
     /**
@@ -38,7 +40,7 @@ class FeatureContext implements Context
      */
     public function iInitialiseContact()
     {
-        throw new PendingException();
+        $this->myGreeting = $this->user->getGreeting();
     }
 
     /**
