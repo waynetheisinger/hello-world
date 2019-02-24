@@ -21,11 +21,11 @@ class FeatureContext implements Context
      */
     public function __construct($parameters)
     {
-      $this->parameters = $parameters;
-      if (isset($parameters['screenshot_dir'])) {
+        $this->parameters = $parameters;
+        if (isset($parameters['screenshot_dir'])) {
         $this->screenshot_dir = $parameters['screenshot_dir'];
-      }
-      $this->user = new User();
+        }
+        $this->user = new User();
     }
 
     /**

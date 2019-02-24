@@ -5,13 +5,13 @@ namespace Helloworld;
  */
 class User
 {
-  private $name;
+    private $name;
 
-  public function setName($name) {
+    public function setName($name) {
     $this->name = $name;
-  }
+    }
 
-  public function getGreeting($value='') {
+    public function getGreeting() {
     return 'hello '.$this->name;
-  }
+    }
 }
