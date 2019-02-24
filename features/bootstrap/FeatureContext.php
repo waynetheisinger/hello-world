@@ -55,4 +55,53 @@ class FeatureContext implements Context
     {
         Assert::eq($this->myGreeting, $helloWorld, 'We were not told hello world');
     }
+
+    /**
+     * @Given that my username is :notWorld
+     */
+    public function thatMyUsernameIs($notWorld)
+    {
+        $this->user->setName($notWorld);
+    }
+
+    /**
+     * @Then I should not be told :helloworld
+     */
+    public function iShouldNotBeTold($helloWorld)
+    {
+        Assert::notEq($this->myGreeting,
+        $helloWorld,
+        'We were not told "hello world"');
+    }
+
+    /**
+     * @Then no greeting should be shown
+     */
+    public function noGreetingShouldBeShown()
+    {
+        Assert::null($this->myGreeting, 'We were greeted');
+    }
+
+    /**
+     * @Given that my username is and illegal value such as :arg1
+     */
+    public function thatMyUsernameIsAndIllegalValueSuchAs($arg1)
+    {
+        $this->illegalValue = $arg1;
+    }
+
+    /**
+     * @Then an Exception should be thrown
+     */
+    public function anExceptionShouldBeThrown()
+    {
+       function myClosure($who) {
+              return function() use ($who) {
+                  $user = new User();
+                  $user->setName((int)$who);
+              };
+        }
+        $myClosure = myClosure($this->illegalValue);
+        Assert::throws($myClosure);
+    }
 }
