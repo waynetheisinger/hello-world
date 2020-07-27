@@ -14,6 +14,8 @@ services:
   # Selenium
   browser:
     hostname: browser
+    ports:
+    - 4444:4444
     # Pick/uncomment one
     image: selenium/standalone-chrome
     #image: selenium/standalone-firefox
